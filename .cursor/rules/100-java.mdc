@@ -1,0 +1,12 @@
+---
+description: Ensure consistent Java code style and conventions, including naming, formatting, and Javadoc.
+globs: ["**/*.java"]
+alwaysApply: true
+---
+- Follow Google Java Format or a similar established style guide for formatting.
+- Use meaningful and descriptive names for classes, methods, and variables (e.g., camelCase for variables and methods, PascalCase for classes).
+- Provide comprehensive Javadoc comments for public classes, methods, and fields, explaining their purpose, parameters, and return values.
+- Avoid excessive use of magic numbers and instead define them as constants.
+- Prefer immutability where possible.
+- Use try-with-resources for managing resources like streams and file I/O.
+

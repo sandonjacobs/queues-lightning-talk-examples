@@ -1,0 +1,13 @@
+---
+description: Rules for Kafka producer implementations.
+globs:
+  - "**/producer/**/*.java"
+alwaysApply: true
+---
+content: |
+  When working with Kafka producers:
+  - Ensure proper configuration of `KafkaProducer` properties (bootstrap servers, serializers, acks, retries).
+  - Implement error handling for message sending (e.g., using callbacks or `Future.get()`).
+  - Consider batching and compression for performance optimization.
+  - Use appropriate keys for message partitioning.
+  - Close the producer gracefully when no longer needed.

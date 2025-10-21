@@ -1,0 +1,14 @@
+---
+description: Rules for Kafka consumer implementations.
+globs:
+  - "**/consumer/**/*.java"
+alwaysApply: true
+---
+content: |
+  When working with Kafka consumers:
+  - Configure `KafkaConsumer` properties (bootstrap servers, deserializers, group ID, auto-offset reset).
+  - Implement a polling loop to fetch records.
+  - Manage consumer offsets effectively (auto-commit, manual commit).
+  - Handle message processing failures and potential re-processing.
+  - Consider consumer group rebalancing and session timeouts.
+  - Close the consumer gracefully.

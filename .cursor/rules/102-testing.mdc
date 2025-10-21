@@ -1,0 +1,10 @@
+---
+description: Promote effective testing practices for Java projects.
+globs: ["src/test/**/*.java"]
+alwaysApply: true
+---
+- Write clear, concise, and focused unit tests for individual components.
+- Use mocking frameworks like Mockito for isolating dependencies in unit tests.
+- Implement integration tests to verify interactions between components and external systems.
+- Consider using Testcontainers for integration testing with real databases or services.
+- Ensure adequate test coverage for critical business logic.

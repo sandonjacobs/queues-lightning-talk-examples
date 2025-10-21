@@ -1,0 +1,12 @@
+---
+description: Enforce Maven best practices for dependency management, build profiles, and plugin configuration.
+globs: ["pom.xml"]
+alwaysApply: true
+---
+- Use <dependencyManagement> for consistent dependency versions across modules.
+- Utilize BOMs (Bill of Materials) for managing transitive dependencies.
+- Adhere to the standard Maven directory layout (src/main/java, src/test/java, etc.).
+- Define build profiles for environment-specific configurations (e.g., dev, test, prod).
+- Centralize plugin management within <pluginManagement> to ensure consistent plugin versions.
+- Keep POMs readable and maintainable, using properties for version management.
+- Declare custom repositories explicitly and minimize their use, preferring a central repository manager.
