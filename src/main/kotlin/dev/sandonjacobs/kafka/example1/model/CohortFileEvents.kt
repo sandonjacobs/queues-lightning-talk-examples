@@ -1,8 +1,11 @@
-package dev.sandonjacobs.kafka.example1
+package dev.sandonjacobs.kafka.example1.model
 
 import kotlinx.serialization.Serializable
 import kotlin.time.ExperimentalTime
 import kotlin.time.Instant
+
+@Serializable
+data class CohortCustomerKey(val customerId: String, val cohortId: String)
 
 @Serializable
 data class CohortUpdatedEvent @OptIn(ExperimentalTime::class) constructor(
@@ -10,7 +13,19 @@ data class CohortUpdatedEvent @OptIn(ExperimentalTime::class) constructor(
     val cohortId: String,
     val updatedTs: Instant,
     val fileLocations: List<String>
-)
+) {
+    @OptIn(ExperimentalTime::class)
+    fun toFileProcessCommands(): List<CohortFileProcessCommand> {
+        return fileLocations.map { fileLocation ->
+            CohortFileProcessCommand(
+                customerId = customerId,
+                cohortId = cohortId,
+                updatedTs = updatedTs,
+                fileLocation = fileLocation
+            )
+        }
+    }
+}
 
 @Serializable
 data class CohortFileProcessCommand @OptIn(ExperimentalTime::class) constructor(

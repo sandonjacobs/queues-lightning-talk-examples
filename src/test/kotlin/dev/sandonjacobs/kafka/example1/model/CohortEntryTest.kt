@@ -1,6 +1,6 @@
-package dev.sandonjacobs.kafka.example1
+package dev.sandonjacobs.kafka.example1.model
 
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.time.Clock
@@ -51,16 +51,16 @@ class CohortEntryTest {
     }
 
     private fun<T: MemberToCohortCommand> validateCommand(cohortEntry: CohortEntry,
-                                fileProcessCommand: CohortFileProcessCommand,
-                                expectedCommandType: Class<T>) {
+                                                          fileProcessCommand: CohortFileProcessCommand,
+                                                          expectedCommandType: Class<T>) {
 
         val result = cohortEntry.cohortEntryToCohortCommand(fileProcessCommand)
-        assertEquals(expectedCommandType, result::class.java)
-        assertEquals(cohortEntry.memberName, result.memberName)
-        assertEquals(cohortEntry.email, result.email)
-        assertEquals(cohortEntry.memberName, result.memberName)
-        assertEquals(fileProcessCommand.cohortId, result.cohortId)
-        assertEquals(fileProcessCommand.customerId, result.customerId)
-        assertEquals(fileProcessCommand.fileLocation, result.fileLocation)
+        Assertions.assertEquals(expectedCommandType, result::class.java)
+        Assertions.assertEquals(cohortEntry.memberName, result.memberName)
+        Assertions.assertEquals(cohortEntry.email, result.email)
+        Assertions.assertEquals(cohortEntry.memberName, result.memberName)
+        Assertions.assertEquals(fileProcessCommand.cohortId, result.cohortId)
+        Assertions.assertEquals(fileProcessCommand.customerId, result.customerId)
+        Assertions.assertEquals(fileProcessCommand.fileLocation, result.fileLocation)
     }
 }

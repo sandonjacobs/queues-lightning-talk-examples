@@ -1,4 +1,4 @@
-package dev.sandonjacobs.kafka.example1
+package dev.sandonjacobs.kafka.example1.model
 
 import kotlinx.serialization.Serializable
 import kotlin.time.ExperimentalTime
@@ -9,6 +9,9 @@ enum class CohortMemberActionType(val action: String) {
     DELETE("DELETE"),
     UPDATE("UPDATE")
 }
+
+@Serializable
+data class CohortMemberKey(val customerId: String, val cohortId: String, val memberId: String)
 
 @Serializable
 sealed class MemberToCohortCommand(val actionType: CohortMemberActionType) {
@@ -22,6 +25,7 @@ sealed class MemberToCohortCommand(val actionType: CohortMemberActionType) {
     abstract val transactionTs: Instant
 }
 
+@Serializable
 data class AddMemberToCohortCommand @OptIn(ExperimentalTime::class) constructor(
     override val customerId: String,
     override val cohortId: String,
@@ -32,6 +36,7 @@ data class AddMemberToCohortCommand @OptIn(ExperimentalTime::class) constructor(
     override val transactionTs: Instant
 ): MemberToCohortCommand(CohortMemberActionType.ADD)
 
+@Serializable
 data class UpdateMemberInCohortCommand @OptIn(ExperimentalTime::class) constructor(
     override val customerId: String,
     override val cohortId: String,
@@ -42,6 +47,7 @@ data class UpdateMemberInCohortCommand @OptIn(ExperimentalTime::class) construct
     override val transactionTs: Instant
 ): MemberToCohortCommand(CohortMemberActionType.UPDATE)
 
+@Serializable
 data class RemoveMemberFromCohortCommand @OptIn(ExperimentalTime::class) constructor(
     override val customerId: String,
     override val cohortId: String,

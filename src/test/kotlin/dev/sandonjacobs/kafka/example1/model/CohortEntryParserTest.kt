@@ -1,4 +1,4 @@
-package dev.sandonjacobs.kafka.example1
+package dev.sandonjacobs.kafka.example1.model
 
 import kotlinx.serialization.json.Json
 import kotlin.test.Test
@@ -17,7 +17,7 @@ class CohortEntryParserTest {
           }
         """.trimIndent()
 
-        val result = Json.decodeFromString<CohortEntry>(entry)
+        val result = Json.Default.decodeFromString<CohortEntry>(entry)
         assertEquals("member123", result.memberId)
         assertEquals("member123@kotlin.lang", result.email)
         assertEquals("Member OneTwoThree", result.memberName)
@@ -35,7 +35,7 @@ class CohortEntryParserTest {
           }
         """.trimIndent()
 
-        val result = Json.decodeFromString<CohortEntry>(entry)
+        val result = Json.Default.decodeFromString<CohortEntry>(entry)
         assertEquals("member123", result.memberId)
         assertEquals("member123@kotlin.lang", result.email)
         assertEquals("Member OneTwoThree", result.memberName)
@@ -53,7 +53,7 @@ class CohortEntryParserTest {
           }
         """.trimIndent()
 
-        val result = Json.decodeFromString<CohortEntry>(entry)
+        val result = Json.Default.decodeFromString<CohortEntry>(entry)
         assertEquals("member123", result.memberId)
         assertEquals("member123@kotlin.lang", result.email)
         assertEquals("Member OneTwoThree", result.memberName)
