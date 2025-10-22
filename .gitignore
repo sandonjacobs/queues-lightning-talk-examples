@@ -91,3 +91,6 @@ application-test.properties
 
 # Test results
 TEST-*.xml
+
+# Kotlin
+*.kotlin_module
