@@ -1,5 +1,0 @@
-[
-  {"memberId":"mem_001","email":"john.doe@gmail.com","memberName":"John Doe","action":"ADD"},
-  {"memberId":"mem_002","email":"jane.smith@yahoo.com","memberName":"Jane Smith","action":"UPDATE"},
-  {"memberId":"mem_003","email":"mike.johnson@outlook.com","memberName":"Mike Johnson","action":"DELETE"}
-]
