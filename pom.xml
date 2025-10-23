@@ -26,6 +26,7 @@
         <mockito.version>5.8.0</mockito.version>
         <testcontainers.version>1.19.3</testcontainers.version>
         <org.mapstruct.version>1.6.3</org.mapstruct.version>
+        <caffeine.version>3.1.8</caffeine.version>
     </properties>
 
     <dependencyManagement>
@@ -78,6 +79,13 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
+        </dependency>
+
+        <!-- Caffeine Cache -->
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
+            <version>${caffeine.version}</version>
         </dependency>
 
         <!-- Logging -->

@@ -1,6 +1,6 @@
 package dev.sandonjacobs.kafka
 
-import dev.sandonjacobs.kafka.example1.Example1Coordinator
+import dev.sandonjacobs.kafka.iot.IotAlertCoordinator
 import org.slf4j.LoggerFactory
 
 /**
@@ -27,8 +27,7 @@ object QueuesLightningTalkExamples {
             // TODO: Add example implementations here
             logger.info("Application started successfully")
             
-            // For now, just demonstrate that the application can start
-            Thread(Example1Coordinator()).start()
+            Thread(IotAlertCoordinator()).start()
 
         } catch (e: Exception) {
             logger.error("Error starting application", e)

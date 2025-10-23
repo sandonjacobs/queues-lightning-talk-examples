@@ -61,7 +61,11 @@ services:
         echo 'Kafka is ready, creating topic...' &&
         /opt/kafka/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server kafka:29092 --topic cohort-member-command --partitions 3 --replication-factor 1 &&
         echo 'Topic events-string created successfully' &&
-        /opt/kafka/bin/kafka-topics.sh --describe --bootstrap-server kafka:29092 --topic cohort-member-command
+        /opt/kafka/bin/kafka-topics.sh --describe --bootstrap-server kafka:29092 --topic cohort-member-command &&
+        echo 'Kafka is ready, creating topic...' &&
+        /opt/kafka/bin/kafka-topics.sh --create --if-not-exists --bootstrap-server kafka:29092 --topic iot-alerts --partitions 3 --replication-factor 1 &&
+        echo 'Topic events-string created successfully' &&
+        /opt/kafka/bin/kafka-topics.sh --describe --bootstrap-server kafka:29092 --topic iot-alerts
       "
     networks:
       - kafka-net
