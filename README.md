@@ -242,6 +242,9 @@ enum class Preference(val value: String) {
 To run the IoT Alerts demonstration:
 
 1. **Start Kafka** (ensure it's running on `localhost:9092`)
+    ```bash
+    docker compose up -d
+    ```
 2. **Run the application**:
    ```bash
    ./mvnw exec:java -Dexec.mainClass="dev.sandonjacobs.kafka.QueuesLightningTalkExamples"
